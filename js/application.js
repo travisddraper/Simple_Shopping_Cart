@@ -6,6 +6,12 @@
 //to make sure I add this on the document.body so it is appended to each
 //<tr> that is created and not just the ones that exist.
 
+
 $(document).ready(function() {
-    
-}
+
+    $(document).on('click', '.btn.remove', function (event) {
+
+        $(this).closest('tr').remove();
+
+    })
+});
