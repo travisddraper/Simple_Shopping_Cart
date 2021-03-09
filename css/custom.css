@@ -41,12 +41,33 @@ body {
     }
 }
 
-#yellowSquare {
+#redSquare {
     height: 300px;
     width: 300px;
-    background-color: rgb(248, 235, 51);
+    background-color: #dc3545;
     margin-right: auto;
     margin-left: auto;
     margin-top: 100px;
     transform: rotate(45deg);
+}
+#greenSquare {
+    height: 300px;
+    width: 300px;
+    left: 0px;
+    background-color: #008000;
+    position: relative;
+    margin-top: -300px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+#blueSquare {
+    height: 300px;
+    width: 300px;
+    left: 0px;
+    background-color: rgb(14, 118, 255);
+    position: relative;
+    margin-left: auto;
+    margin-top: -300px;
+    transform: rotate(45deg);
+    z-index: 1;
 }
