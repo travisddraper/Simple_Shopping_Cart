@@ -19,16 +19,16 @@ $(document).ready(function() {
 
         event.preventDefault();
 
-        var grocery = $(this).children('.groceryData').children().val();
-        var price = $(this).children('.priceData').children().val();
+        var grocery = $(this).children('[name=grocery]').val();
+        var price = $(this).children('[name=price]').val();
 
+        console.log(grocery);
+        console.log(price);
 
-        $('tbody').append('<tr>' + '<td class="grocery">' + grocery + '</td>' + '<td class="price">' + price + '</td>' + '<td class="quantity">QTY<input class="ml-2" type="number" value="" /><button class="btn btn-sm remove ml-1">Cancel</button></td>' + '</tr>')
+        $('tbody').append('<tr>' + '<td class="grocery">' + grocery + '</td>' + '<td class="price">$' + price + '</td>' + '<td class="quantity">QTY<input class="ml-2" type="number" value="" /><button class="btn btn-sm remove ml-1">Cancel</button></td>' + '</tr>')
 
-        $(this).children('.groceryData').children().val('');
-        $(this).children('.priceData').children().val('');
-
-        $('tbody').append($('#creationRow'));
+        $(this).children('[name=grocery]').val('');
+        $(this).children('[name=price]').val('');
 
     });
 

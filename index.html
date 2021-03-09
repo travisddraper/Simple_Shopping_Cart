@@ -41,21 +41,15 @@
                <td class="price">$30.00</td>
                <td class="quantity">QTY<input class="ml-2" type="number" value="1" /><button class='btn btn-sm remove ml-1'>Cancel</button></td>
              </tr>
-             <tr id="#creationRow">
-                <form id="addGrocery">
-                  <td class='groceryData'>
-                    <input name='grocery' type='text' placeholder="Add Grocery" />
-                  </td>
-                  <td class='priceData'>
-                    <input name='price' type='number' placeholder="Price" />
-                  </td>
-                  <td class="create addToMe">
-                    <button id="addItem" class='btn btn-small'>Create</button>
-                  </td>
-                </form>
-              </tr>
             </tbody>
           </table>
+          <div>
+            <form id="addGrocery">
+              <input name="grocery" type='text' placeholder="Add Grocery" required />
+              <input name='price' type='number' step='any' placeholder="Price" required />
+              <button id="addItem" class='btn btn-sm'>Create</button>
+            </form>
+          </div>
           <button class='btn btn-success float-right'>Calculate Price</button>
         </div>
       </div>
