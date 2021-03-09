@@ -40,3 +40,13 @@ body {
         width: 143px;
     }
 }
+
+#yellowSquare {
+    height: 300px;
+    width: 300px;
+    background-color: rgb(248, 235, 51);
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 100px;
+    transform: rotate(45deg);
+}
