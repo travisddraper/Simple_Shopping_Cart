@@ -1,3 +1,8 @@
+body {
+    font-weight: 500;
+    font-size: 18px;
+}
+
 #title {
     text-align: center;
 }
@@ -24,8 +29,14 @@
     color: white;
 }
 
-@media (max-width: 515px) {
+@media (max-width: 767px) {
     .quantity input {
-        width: 153px;
+        width: 100px;
+    }
+}
+
+@media (max-width: 510px) {
+    #addGrocery input {
+        width: 143px;
     }
 }
