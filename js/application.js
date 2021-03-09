@@ -74,12 +74,13 @@ $(document).ready(function() {
         var grocery = $(this).children('[name=grocery]').val();
         var price = $(this).children('[name=price]').val();
 
-        $('tbody').append('<tr>' + '<td class="grocery">' + grocery + '</td>' + '<td class="price">$' + price + '</td>' + '<td class="quantity">QTY<input class="ml-2" type="number" min="0" value="1" /><button class="btn btn-danger remove ml-1">X</button></td>' + '<td class="cost">' + '</td>' + '</tr>')
-
+        $(('<tr>' + '<td class="grocery">' + grocery + '</td>' + '<td class="price">$' + price + '</td>' + '<td class="quantity">QTY<input class="ml-2" type="number" min="0" value="1" /><button class="btn btn-danger remove ml-1">X</button></td>' + '<td class="cost">' + '</td>' + '</tr>')).prependTo($('tbody'));
+        
         costUpdater();
 
         $(this).children('[name=grocery]').val('');
         $(this).children('[name=price]').val('');
+        $(this).children('[name=grocery]').focus()
 
     });
 
