@@ -1,6 +1,11 @@
 body {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 18px;
+    background-color: rgb(171, 202, 218)
+}
+
+.table-hover tbody tr:hover td {
+    background: rgb(184, 216, 188);
 }
 
 #title {
@@ -8,7 +13,7 @@ body {
 }
 
 .quantity {
-    font-weight: bold;
+    font-weight: 600;
 }
 
 [name=price]::-webkit-inner-spin-button,
@@ -39,35 +44,4 @@ body {
     #addGrocery input {
         width: 143px;
     }
-}
-
-#redSquare {
-    height: 300px;
-    width: 300px;
-    background-color: #dc3545;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 100px;
-    transform: rotate(45deg);
-}
-#greenSquare {
-    height: 300px;
-    width: 300px;
-    left: 0px;
-    background-color: #008000;
-    position: relative;
-    margin-top: -300px;
-    transform: rotate(45deg);
-    z-index: -1;
-}
-#blueSquare {
-    height: 300px;
-    width: 300px;
-    left: 0px;
-    background-color: rgb(14, 118, 255);
-    position: relative;
-    margin-left: auto;
-    margin-top: -300px;
-    transform: rotate(45deg);
-    z-index: 1;
 }
