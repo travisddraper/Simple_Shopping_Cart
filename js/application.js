@@ -43,7 +43,7 @@ var costUpdater = function (ele) {
 
         var totalPrice = totalPriceArray.reduce(sum);
 
-        $('#totalPrice').html("$" + totalPrice);
+        $('#totalPrice').html("Total Price: $" + totalPrice);
     }
 
 
