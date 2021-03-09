@@ -1,18 +1,72 @@
-//inside of the ready function of jQuery, I need to run a price update
-//that appends to each <tr> a $$ amount based on the value inputed to
-//the quantity field
+function removeDollarSign(string) {
+    var newString = '';
+    for(i=0;i<string.length;i++) {
+        if(string[i] !== '$') {
+            newString += string[i];
+        }
+    }
+    return newString;
+}
 
-//Need to create a "Cancel" button that will remove its <tr> and need
-//to make sure I add this on the document.body so it is appended to each
-//<tr> that is created and not just the ones that exist.
+var costCalculator = function (ele) {
+
+    var groceryString = $(ele).find('.price').text();
+
+    var groceryPrice = removeDollarSign(groceryString);
+
+    var quantity = parseFloat($(ele).find('.quantity input').val())
+
+    var cost = groceryPrice * quantity
+
+    return cost
+}
+
+var sum = function (acc, x) {return acc + x};
+
+var costUpdater = function (ele) {
+
+    var totalPriceArray = [];
+
+    $('tbody tr').each(function (i, ele) {
+
+        var groceryCost = costCalculator(ele);
+
+        totalPriceArray.push(groceryCost);
+
+        $(this).find('.cost').html('$'+ groceryCost);
+
+    })
+
+    if(totalPriceArray.length === 0) {
+
+        $('#totalPrice').html("$" + 0);
+
+    } else {
+        
+        var totalPrice = totalPriceArray.reduce(sum);
+
+        $('#totalPrice').html("$" + totalPrice);
+    }
+
+
+}
 
 
 $(document).ready(function() {
+
+    costUpdater();
 
     $(document).on('click', '.btn.remove', function (event) {
 
         $(this).closest('tr').remove();
 
+        costUpdater();
+        
+    })
+
+    $(document).on('change', '.quantity input', function (event) {
+
+        costUpdater();
     })
 
     $('#addGrocery').on('submit', function (event) {
@@ -22,10 +76,9 @@ $(document).ready(function() {
         var grocery = $(this).children('[name=grocery]').val();
         var price = $(this).children('[name=price]').val();
 
-        console.log(grocery);
-        console.log(price);
+        $('tbody').append('<tr>' + '<td class="grocery">' + grocery + '</td>' + '<td class="price">$' + price + '</td>' + '<td class="quantity">QTY<input class="ml-2" type="number" value="1" /><button class="btn btn-sm remove ml-1">Cancel</button></td>' + '<td class="cost">' + '</td>' + '</tr>')
 
-        $('tbody').append('<tr>' + '<td class="grocery">' + grocery + '</td>' + '<td class="price">$' + price + '</td>' + '<td class="quantity">QTY<input class="ml-2" type="number" value="" /><button class="btn btn-sm remove ml-1">Cancel</button></td>' + '</tr>')
+        costUpdater();
 
         $(this).children('[name=grocery]').val('');
         $(this).children('[name=price]').val('');
