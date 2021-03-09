@@ -1,3 +1,9 @@
 .quantity {
     font-weight: bold;
 }
+
+[name=price]::-webkit-inner-spin-button,
+[name=price]::-webkit-outer-spin-button  {
+    -webkit-appearance: none; 
+    margin: 0
+}

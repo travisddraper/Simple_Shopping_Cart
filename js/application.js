@@ -11,9 +11,7 @@ function removeDollarSign(string) {
 var costCalculator = function (ele) {
 
     var groceryString = $(ele).find('.price').text();
-
     var groceryPrice = removeDollarSign(groceryString);
-
     var quantity = parseFloat($(ele).find('.quantity input').val())
 
     var cost = groceryPrice * quantity
@@ -42,7 +40,7 @@ var costUpdater = function (ele) {
         $('#totalPrice').html("$" + 0);
 
     } else {
-        
+
         var totalPrice = totalPriceArray.reduce(sum);
 
         $('#totalPrice').html("$" + totalPrice);
@@ -76,7 +74,7 @@ $(document).ready(function() {
         var grocery = $(this).children('[name=grocery]').val();
         var price = $(this).children('[name=price]').val();
 
-        $('tbody').append('<tr>' + '<td class="grocery">' + grocery + '</td>' + '<td class="price">$' + price + '</td>' + '<td class="quantity">QTY<input class="ml-2" type="number" value="1" /><button class="btn btn-sm remove ml-1">Cancel</button></td>' + '<td class="cost">' + '</td>' + '</tr>')
+        $('tbody').append('<tr>' + '<td class="grocery">' + grocery + '</td>' + '<td class="price">$' + price + '</td>' + '<td class="quantity">QTY<input class="ml-2" type="number" min="0" value="1" /><button class="btn btn-sm remove ml-1">Cancel</button></td>' + '<td class="cost">' + '</td>' + '</tr>')
 
         costUpdater();
 
